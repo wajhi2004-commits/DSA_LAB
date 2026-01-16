@@ -1,0 +1,91 @@
+public class Main {
+    public static void main(String[] args) {
+        int age = 22;
+        double gpa = 3.25;
+        char grade = 'A';
+        boolean passed = true;
+        String name = "Wajahat";
+
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("GPA: " + gpa);
+        System.out.println("Grade: " + grade);
+        System.out.println("Passed: " + passed);
+    }
+}
+
+Output:
+
+Name: Wajahat
+Age: 22
+GPA: 3.25
+Grade: A
+Passed: true
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        double celsius = 25.0;
+        double fahrenheit = (celsius * 9/5) + 32;
+        System.out.println("Temperature in Fahrenheit: " + fahrenheit);
+    }
+}
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+
+        System.out.println("Welcome " + name + "! You are " + age + " years old.");
+    }
+}
+
+  Output
+Enter your name: Wajahat
+Enter your age: 22
+Welcome Hamza! You are 22 years old.
+
+
+
+#Question 3
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int num = sc.nextInt();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+        }
+    }
+}
+
+#Question 4
+
+public class Main {
+    public static void main(String[] args) {
+        int[] marks = {85, 90, 78, 92, 88};
+
+        int sum = 0;
+        for (int i = 0; i < marks.length; i++) {
+            sum += marks[i];
+        }
+
+        double average = (double) sum / marks.length;
+        System.out.println("Average Marks = " + average);
+    }
+}
+
+
+ Output
+Average Marks = 86.6
