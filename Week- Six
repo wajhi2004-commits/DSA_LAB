@@ -1,0 +1,37 @@
+#Palindrome
+public boolean isPalindrome() {
+    StackLinkedList copy = new StackLinkedList();
+    StackLinkedList temp = new StackLinkedList();
+
+    Node current = top;
+    while (current != null) {
+        copy.push(current.data);
+        temp.push(current.data);
+        current = current.next;
+    }
+
+    StackLinkedList reversed = temp.reverseStack();
+
+    while (!copy.isEmpty() && !reversed.isEmpty()) {
+        if (copy.pop() != reversed.pop()) return false;
+    }
+    return true;
+}
+
+Stack: [1, 2, 3, 2, 1]
+Output → Palindrome = true
+
+#Stacklinkedlist
+
+public StackLinkedList reverseStack() {
+    StackLinkedList temp = new StackLinkedList();
+    while (!isEmpty()) {
+        temp.push(pop());
+    }
+    return temp;
+}
+
+#Output
+
+Stack: [10, 20, 30]
+Reversed → [30, 20, 10]
