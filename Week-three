@@ -1,0 +1,124 @@
+class Node {
+    int data;
+    Node next;
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+
+Node head = new Node(10);
+Node second = new Node(20);
+Node third = new Node(30);
+head.next = second;
+second.next = third;
+
+
+class LL {
+
+
+   Node head;
+   private int size;
+
+
+   LL () {
+       size = 0;
+   }
+
+//Node class with size  
+   public class Node {
+       String data;
+       Node next;
+
+
+       Node(String data) {
+           this.data = data;
+           this.next = null;
+           size++;
+       }
+   }
+
+}
+
+
+
+#AddFirst
+public void addFirst(String data) {
+    Node newNode = new Node(data);
+    newNode.next = head;
+    head = newNode;
+}
+
+
+#AddLast
+public void addLast(String data) {
+    Node newNode = new Node(data);
+    if(head == null) {
+        head = newNode;
+        return;
+    }
+    Node lastNode = head;
+    while(lastNode.next != null) {
+        lastNode = lastNode.next;
+    }
+    lastNode.next = newNode;
+}
+
+#RemoveFirst
+public void removeFirst() {
+    if(head == null) {
+        System.out.println("Empty List, nothing to delete");
+        return;
+    }
+    head = this.head.next;
+    size--;
+}
+
+
+
+# RemoveLast
+public void removeLast() {
+    if(head == null) {
+        System.out.println("Empty List, nothing to delete");
+        return;
+    }
+    size--;
+    if(head.next == null) {
+        head = null;
+        return;
+    }
+    Node currNode = head;
+    Node lastNode = head.next;
+    while(lastNode.next != null) {
+        currNode = currNode.next;
+        lastNode = lastNode.next;
+    }
+    currNode.next = null;
+}
+
+public static void main(String args[]) {
+    LL list = new LL();
+    list.addLast("is");
+    list.addLast("a");
+    list.addLast("list");
+    list.printList();
+
+    list.addFirst("this");
+    list.printList();
+    System.out.println(list.getSize()); 
+
+    list.removeFirst();
+    list.printList();
+
+    list.removeLast();
+    list.printList();
+}
+
+
+#Output
+is -> a -> list -> null
+this -> is -> a -> list -> null
+4
+is -> a -> list -> null
+is -> a -> null
