@@ -1,0 +1,57 @@
+## BINARY SEARCH TREE (RECURSIVE)
+public void delete(int value) {
+    root = deleteRec(root, value);
+}
+
+private Node deleteRec(Node root, int value) {
+    if (root == null)
+        return null;
+
+    if (value < root.value) {
+        root.left = deleteRec(root.left, value);
+    }
+    else if (value > root.value) {
+        root.right = deleteRec(root.right, value);
+    }
+    else {
+       CASE:1
+        if (root.left == null && root.right == null)
+            return null;
+
+      CASE:2
+        if (root.left == null)
+            return root.right;
+        if (root.right == null)
+            return root.left;
+        CASE:3
+        int successorValue = findMin(root.right);
+        root.value = successorValue;
+        root.right = deleteRec(root.right, successorValue);
+    }
+    return root;
+}
+
+
+## MAIN
+public static void main(String[] args) {
+    BST tree = new BST();
+
+    tree.insert(50);
+    tree.insert(30);
+    tree.insert(70);
+    tree.insert(20);
+    tree.insert(40);
+    tree.insert(60);
+    tree.insert(80);
+
+    System.out.println("Total Nodes: " + tree.countNodes());
+    System.out.println("Leaf Nodes: " + tree.countLeafNodes());
+    System.out.println("Valid BST: " + tree.isValidBST());
+
+    System.out.println("Level Order Traversal:");
+    tree.levelOrderTraversal();
+
+    tree.delete(50);
+    System.out.println("After Deleting 50:");
+    tree.levelOrderTraversal();
+}
